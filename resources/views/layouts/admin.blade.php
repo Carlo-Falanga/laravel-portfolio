@@ -43,6 +43,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="{{ route('admin.index') }}">Dashboard</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ route('admin.projects.index') }}">Progetti</a>
+                        </li>
                     </ul>
                 </aside>
 
