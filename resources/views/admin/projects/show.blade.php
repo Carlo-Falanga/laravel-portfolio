@@ -1,9 +1,24 @@
 @extends('layouts.admin')
 
 @section('content')
-    <a href="{{ route('admin.projects.index') }}" class="btn btn-link px-0 mb-3">
-        &larr; Torna all'elenco
-    </a>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <a href="{{ route('admin.projects.index') }}" class="btn btn-link px-0">
+            &larr; Torna all'elenco
+        </a>
+
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-warning">
+                Modifica
+            </a>
+
+            <form action="{{ route('admin.projects.destroy', $project) }}" method="POST"
+                onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Elimina</button>
+            </form>
+        </div>
+    </div>
 
     <div class="card shadow-sm">
         @if ($project->thumbnail)
