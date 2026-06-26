@@ -13,6 +13,12 @@
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container-fluid">
+                <!-- Toggler sidebar (solo mobile) -->
+                <button class="navbar-toggler border-0 me-2 d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#adminSidebar" aria-controls="adminSidebar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <a class="navbar-brand" href="{{ route('admin.index') }}">Admin</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
@@ -37,20 +43,28 @@
 
         <div class="container-fluid flex-grow-1">
             <div class="row">
-                <!-- Sidebar -->
-                <aside class="col-md-3 col-lg-2 bg-light border-end py-3 min-vh-100">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('admin.index') }}">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('admin.projects.index') }}">Progetti</a>
-                        </li>
-                    </ul>
+                <!-- Sidebar: offcanvas su mobile, fissa da md in su -->
+                <aside class="offcanvas-md offcanvas-start bg-light border-end p-0 col-md-3 col-lg-2"
+                    tabindex="-1" id="adminSidebar" aria-labelledby="adminSidebarLabel">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="adminSidebarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            data-bs-target="#adminSidebar" aria-label="Chiudi"></button>
+                    </div>
+                    <div class="offcanvas-body d-md-block py-3">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ route('admin.index') }}">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ route('admin.projects.index') }}">Progetti</a>
+                            </li>
+                        </ul>
+                    </div>
                 </aside>
 
                 <!-- Contenuto -->
-                <main class="col-md-9 col-lg-10 py-4">
+                <main class="col-12 col-md-9 col-lg-10 py-4">
                     @yield('content')
                 </main>
             </div>
