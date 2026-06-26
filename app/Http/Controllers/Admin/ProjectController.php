@@ -32,7 +32,14 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        return "sei nello store";
+        $data = $request->all();
+        
+        $newProject = new Project();
+
+        $newProject->fill($data);
+        $newProject->save();
+        
+        return redirect()->route("admin.projects.show", $newProject->id);
     }
 
     /**
