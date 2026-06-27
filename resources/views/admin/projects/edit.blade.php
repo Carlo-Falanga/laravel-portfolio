@@ -16,6 +16,14 @@
     </div>
 
     <div class="mb-3">
+        <label for="category" class="form-label">Categoria</label>
+        <select name="category" id="category" class="form-select">
+            <option value="front end" @selected($project->category === 'front end')>Front end</option>
+            <option value="back end" @selected($project->category === 'back end')>Back end</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
         <label for="description" class="form-label">Descrizione</label>
         <textarea name="description" id="description" rows="5" class="form-control">{{ $project->description }}</textarea>
     </div>

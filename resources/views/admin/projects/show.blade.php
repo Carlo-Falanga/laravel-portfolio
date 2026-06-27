@@ -29,6 +29,12 @@
         <div class="card-body">
             <h1 class="card-title h3">{{ $project->title }}</h1>
 
+            @if ($project->category)
+                <p class="mb-3">
+                    <span class="badge bg-info text-dark text-capitalize">{{ $project->category }}</span>
+                </p>
+            @endif
+
             @if ($project->technologies)
                 <div class="mb-3">
                     @foreach (explode(',', $project->technologies) as $tech)
