@@ -31,7 +31,7 @@
 
             @if ($project->category)
                 <p class="mb-3">
-                    <span class="badge bg-info text-dark text-capitalize">{{ $project->category }}</span>
+                    <span class="badge bg-info text-dark text-capitalize">{{ $project->category->name }}</span>
                 </p>
             @endif
 

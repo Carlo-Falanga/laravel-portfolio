@@ -15,10 +15,12 @@
     </div>
 
     <div class="mb-3">
-        <label for="category" class="form-label">Categoria</label>
-        <select name="category" id="category" class="form-select">
-            <option value="front end">Front end</option>
-            <option value="back end">Back end</option>
+        <label for="category_id" class="form-label">Categoria</label>
+        <select name="category_id" id="category_id" class="form-select">
+            <option value="">Seleziona una categoria</option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
         </select>
     </div>
 
