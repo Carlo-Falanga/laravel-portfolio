@@ -14,7 +14,7 @@ class ProjectSeeder extends Seeder
     {
         Project::create([
             'title' => 'Portfolio Personale',
-            'category' => 'front end',
+            'category_id' => 2,
             'description' => 'Sito web realizzato con Laravel per mostrare i miei progetti.',
             'technologies' => 'Laravel, Blade, Bootstrap',
             'thumbnail' => 'https://placehold.co/600x400?text=Portfolio',
@@ -24,7 +24,7 @@ class ProjectSeeder extends Seeder
 
         Project::create([
             'title' => 'App Meteo',
-            'category' => 'front end',
+            'category_id' => 2,
             'description' => 'Applicazione che mostra le previsioni del tempo usando una API esterna.',
             'technologies' => 'JavaScript, API REST, CSS',
             'thumbnail' => 'https://placehold.co/600x400?text=Meteo',
@@ -34,7 +34,7 @@ class ProjectSeeder extends Seeder
 
         Project::create([
             'title' => 'Lista della Spesa',
-            'category' => 'back end',
+            'category_id' => 1,
             'description' => 'Semplice gestionale per creare e gestire le liste della spesa.',
             'technologies' => 'PHP, MySQL',
             'thumbnail' => 'https://placehold.co/600x400?text=Spesa',
