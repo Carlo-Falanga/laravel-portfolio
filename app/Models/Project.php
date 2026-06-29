@@ -11,7 +11,6 @@ class Project extends Model
         'title',
         'category_id',
         'description',
-        'technologies',
         'thumbnail',
         'repository_url',
         'demo_url',
@@ -19,5 +18,8 @@ class Project extends Model
 
     public function category() {
         return $this->belongsTo(Category::class);
+    }
+    public function technologies(){
+        return $this->belongsToMany(Technology::class);
     }
 }

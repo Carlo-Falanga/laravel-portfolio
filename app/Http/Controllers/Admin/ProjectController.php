@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -26,7 +27,8 @@ class ProjectController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view("admin.projects.create", compact("categories"));
+        $technologies = Technology::all();
+        return view("admin.projects.create", compact("categories", "technologies"));
     }
 
     /**
@@ -40,7 +42,9 @@ class ProjectController extends Controller
 
         $newProject->fill($data);
         $newProject->save();
-        
+
+        $newProject->technologies()->sync($data["technologies"] ?? []);
+
         return redirect()->route("admin.projects.show", $newProject);
     }
 
@@ -49,6 +53,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+
         return view('admin.projects.show', compact('project'));
     }
 
@@ -58,7 +63,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $categories = Category::all();
-        return view("admin.projects.edit", compact("project", "categories"));
+        $technologies = Technology::all();
+        return view("admin.projects.edit", compact("project", "categories", "technologies"));
     }
 
     /**
@@ -69,6 +75,9 @@ class ProjectController extends Controller
 
        $data = $request->all();
        $project->update($data);
+
+       $project->technologies()->sync($data["technologies"] ?? []);
+
        return redirect()->route("admin.projects.show", $project);
 
     }

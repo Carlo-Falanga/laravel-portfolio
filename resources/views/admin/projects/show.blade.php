@@ -35,10 +35,10 @@
                 </p>
             @endif
 
-            @if ($project->technologies)
+            @if ($project->technologies->isNotEmpty())
                 <div class="mb-3">
-                    @foreach (explode(',', $project->technologies) as $tech)
-                        <span class="badge bg-secondary">{{ trim($tech) }}</span>
+                    @foreach ($project->technologies as $tech)
+                        <span class="badge bg-secondary">{{ $tech->name }}</span>
                     @endforeach
                 </div>
             @endif

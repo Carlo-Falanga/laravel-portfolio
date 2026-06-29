@@ -31,7 +31,11 @@
 
     <div class="mb-3">
         <label for="technologies" class="form-label">Tecnologie</label>
-        <input type="text" name="technologies" id="technologies" class="form-control" placeholder="Es. Laravel, Vue, MySQL">
+        <select name="technologies[]" id="technologies" class="form-select" multiple>
+            @foreach ($technologies as $technology)
+                <option value="{{ $technology->id }}">{{ $technology->name }}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="mb-3">

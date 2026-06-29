@@ -25,7 +25,11 @@
                         <td>{{ $project->id }}</td>
                         <td>{{ $project->title }}</td>
                         <td class="d-none d-sm-table-cell text-capitalize">{{ $project->category->name }}</td>
-                        <td class="d-none d-sm-table-cell">{{ $project->technologies }}</td>
+                        <td class="d-none d-sm-table-cell">
+                            @foreach ($project->technologies as $tech)
+                                <span class="badge bg-secondary">{{ $tech->name }}</span>
+                            @endforeach
+                        </td>
                         <td class="text-end">
                             <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-sm btn-primary">
                                 Dettagli
